@@ -1,17 +1,19 @@
 import React from "react";
 import '../hojas-de-estilo/Testimonio.css';
 
-export function Testimonio(){ //exportacion nombrada
+export function Testimonio(props){ //exportacion nombrada
   return(
     <div className='contenedor-testimonio'>
       <img className='imagen-testimonio'
-      src={require('../imagenes/testimonio-emma.png')}
-      alt='Foto de emma'
+      src={require(`../imagenes/testimonio-${props.imagen}.png`)}
+      alt={props.nombre}
       />
       <div className='contenedor-texto-testimonio'>
-        <p className='nombre-testimonio'>Sarah Johnson, Estados Unidos</p>
-        <p className='cargo-testimonio'>Chief Information Security Officer</p>
-        <p className='texto-testimonio'>Cillum nulla eu proident laboris. Sunt aliquip incididunt excepteur est voluptate et ullamco ea eiusmod veniam. Ea pariatur magna ut reprehenderit ex officia cillum fugiat officia consectetur veniam.</p>
+        <p className='nombre-testimonio'>
+          <strong>{props.nombre}</strong>{props.nombre} en <strong>{props.pais}</strong>
+        </p>
+        <p className='cargo-testimonio'>{props.cargo} en {props.empresa}</p>
+        <p className='texto-testimonio'>{props.testimonio}</p>
       </div>
     </div>
   );
